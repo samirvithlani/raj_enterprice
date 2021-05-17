@@ -76,7 +76,8 @@ https://templatemo.com/tm-539-simple-house
 			</div>
 
 			<%
-			List<ProductBean> phoneList = (ArrayList<ProductBean>) request.getAttribute("phoneList");
+				List<ProductBean> phoneList = (ArrayList<ProductBean>) request.getAttribute("phoneList");
+							if(phoneList!=null){
 			%>
 			<!-- Gallery -->
 			<div class="row tm-gallery">
@@ -102,6 +103,10 @@ https://templatemo.com/tm-539-simple-house
 					</article>
 					<%
 					}
+							}else{
+								
+								response.sendRedirect("ViewProductController");
+							}
 					%>
 
 
