@@ -30,9 +30,13 @@
 	%>
 	<nav class="navbar navbar-light bg-light">
 		<div class="container-fluid">
-			<span class="navbar-text"> WELCOME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=adminBean.getaName()%>
-			
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="AdminLogoutController">LOGOUT</a>
+			<span class="navbar-text"> WELCOME
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=adminBean.getaName()%>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="AdminLogoutController">LOGOUT</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="../ViewProductController">VIEW PRODUCTS</a>
 			</span>
 		</div>
 	</nav>
@@ -58,22 +62,19 @@
 					name="txtPhonePrice">
 			</div>
 
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">ENTER
+					PHONE TYPE OLD/NEW</label> <input type="text" class="form-control"
+					name="pht">
+			</div>
 			<div class="input-group mb-3">
 				<input type="file" class="form-control" id="inputGroupFile02"
 					name="image">
 			</div>
 
 
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="phoneType"
-					id="flexRadioDefault1" value="old"> <label
-					class="form-check-label" for="flexRadioDefault1">OLD</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="phoneType"
-					id="flexRadioDefault1" value="new"> <label
-					class="form-check-label" for="flexRadioDefault1"> NEW</label>
-			</div>
+
+
 
 
 			<button type="submit" class="btn btn-primary">Submit</button>

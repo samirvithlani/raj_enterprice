@@ -13,16 +13,6 @@ public class ProductBean {
 	private String pImageURL;
 	private boolean pStatus;
 	private String pType;
-	
-	
-
-	public String getpType() {
-		return pType;
-	}
-
-	public void setpType(String pType) {
-		this.pType = pType;
-	}
 
 	public int getpId() {
 		return pId;
@@ -86,6 +76,14 @@ public class ProductBean {
 
 	public void setpStatus(boolean pStatus) {
 		this.pStatus = pStatus;
+	}
+
+	public String getpType() {
+		return pType;
+	}
+
+	public void setpType(String pType) {
+		this.pType = pType;
 	}
 
 }

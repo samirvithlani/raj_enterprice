@@ -19,7 +19,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.bean.product.ProductBean;
 import com.dao.product.ProductDao;
 
-
 /**
  * Servlet implementation class AddProductController
  */
@@ -43,46 +42,55 @@ public class AddProductController extends HttpServlet {
 		String fieldValue = null;
 		String fileName = null;
 		File file = null;
+		String phonetype = null;
 
 		ProductBean productBean = new ProductBean();
 
 		try {
 			items = upload.parseRequest(request);// Parse Request
+
 			for (int i = 0; i < items.size(); i++) {
+
 				FileItem item = items.get(i);
 
 				if (item.isFormField()) {
+
 					fieldName = item.getFieldName();
 					fieldValue = item.getString();
+
 					if (fieldName.equalsIgnoreCase("txtPhoneName")) {
 						String value = fieldValue;
-						System.out.println("phone Name ="+value);
+						System.out.println("phone Name =" + value);
 						productBean.setpName(value);
 
 					}
+
 					if (fieldName.equalsIgnoreCase("txtPhoneDetail")) {
 						String value = fieldValue;
-						System.out.println("phone detail"+value);
+						System.out.println("phone detail" + value);
 						productBean.setpDetail(value);
 
 					}
+
+					if (fieldName.equalsIgnoreCase("pht")) {
+
+						phonetype = fieldValue;
+						System.out.println("phone type 1" + phonetype);
+						productBean.setpType(phonetype);
+						System.out.println("phone type 2" + productBean.getpType());
+
+					}
+
 					if (fieldName.equalsIgnoreCase("txtPhonePrice")) {
+
 						String value = fieldValue;
-						System.out.println("MobileNumber : " + value);
+						System.out.println("phonePrice =" + value);
 						productBean.setpPrice(value);
-					}
-					
-
-					if (fieldName.equalsIgnoreCase("phoneType")) {
-						String value = fieldValue;
-						
-						productBean.setpType(value);
-						
 
 					}
 
-					
-				} 
+				}
+
 				else {
 					fieldName = item.getFieldName();
 					System.out.println("FieldName : " + fieldName);
@@ -91,17 +99,16 @@ public class AddProductController extends HttpServlet {
 
 					fileName = fileName.substring(fileName.lastIndexOf("\\") + 1, fileName.length());
 					System.out.println("File Name 1 : " + fileName);
-					
-					
+
 					ServletContext context = getServletContext();
-					//String appPath = context.getRealPath("\\");
-					//System.out.println("Path : " + appPath);
+					// String appPath = context.getRealPath("\\");
+					// System.out.println("Path : " + appPath);
 
 					String path = "/upload";
 					String abspath = getServletContext().getRealPath(path);
 					System.out.println(abspath);
-					
-					file = new File(abspath+ File.separator + fileName);
+
+					file = new File(abspath + File.separator + fileName);
 
 					try {
 
@@ -118,11 +125,11 @@ public class AddProductController extends HttpServlet {
 
 							{
 								item.write(file);
-								System.out.println("===> " + file.getName());
+
 								productBean.setpImageURL(file.getName());
 
-								//request.setAttribute("fileName", file.getName());
-								//request.getRequestDispatcher("success.jsp").forward(request, response);
+								// request.setAttribute("fileName", file.getName());
+								// request.getRequestDispatcher("success.jsp").forward(request, response);
 
 							} else {
 
@@ -131,17 +138,20 @@ public class AddProductController extends HttpServlet {
 								request.getRequestDispatcher("student.jsp").forward(request, response);
 							}
 						}
-						
-						//dao
-						if(new ProductDao().addProduct(productBean)) {
+
+						// dao
+
+						if (new ProductDao().addProduct(productBean,phonetype)) {
+
 							
+							System.out.println("phone type dao if"+phonetype);
 							response.sendRedirect("ViewProductController");
-						}
-						else {
-							
+						} else {
+
 							System.out.println("ERRORR");
-							
+
 						}
+
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

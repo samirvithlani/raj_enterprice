@@ -18,22 +18,45 @@ public class ViewProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		List<ProductBean> phoneList = new ProductDao().getAllPhones();
+
+		// String url = request.getRequestURL().toString();
+
+		/// url = url.substring(url.lastIndexOf("\\") + 1, url.length());
+
+		List<ProductBean> phoneList = null;
+		String flag = request.getParameter("flag");
+		System.out.println(flag);
+		int sort = 0;
+		if (flag != null) {
+
+			sort = Integer.parseInt(flag);
+
+		} else {
+
+			phoneList = new ProductDao().getAllPhones();
+			request.setAttribute("phoneList", phoneList);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+
+		phoneList = new ProductDao().getAllPhones(sort);
 		request.setAttribute("phoneList", phoneList);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

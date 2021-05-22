@@ -15,7 +15,7 @@ public class ProductDao {
 	Connection conn;
 	PreparedStatement pstmt;
 
-	public boolean addProduct(ProductBean productBean) {
+	public boolean addProduct(ProductBean productBean, String ptype) {
 		boolean flag = false;
 
 		conn = DBConnection.getDBConnection();
@@ -31,8 +31,8 @@ public class ProductDao {
 				pstmt.setDouble(3, new Double(productBean.getpPrice()));
 				pstmt.setString(4, productBean.getpImageURL());
 				pstmt.setBoolean(5, productBean.ispStatus());
-				System.out.println("type/...." + productBean.getpType());
-				pstmt.setString(6, productBean.getpType());
+				System.out.println("product type........................dao" + ptype);
+				pstmt.setString(6, ptype);
 				int res = pstmt.executeUpdate();
 				if (res > 0) {
 
@@ -68,8 +68,7 @@ public class ProductDao {
 					productBean.setpDetail(rs.getString(3));
 					productBean.setpPrice(rs.getString(4));
 					productBean.setpImageURL(rs.getString(5));
-					productBean.setpStatus(rs.getBoolean(6));
-					productBean.setpType(rs.getString(6));
+					productBean.setpType(rs.getString(8));
 					phoneList.add(productBean);
 
 				}
@@ -84,4 +83,53 @@ public class ProductDao {
 		return phoneList;
 
 	}
+
+	public List<ProductBean> getAllPhones(int sort) {
+
+		List<ProductBean> phoneList = new ArrayList();
+		conn = DBConnection.getDBConnection();
+		String selectSQL = null;
+		if (conn != null) {
+
+			if (sort == 3) {
+				selectSQL = "select * from product where pprice between 5000 and 10000";
+			}
+			if (sort == 4) {
+				selectSQL = "select * from product where pprice between 10000 and 20000";
+
+			}
+			if (sort == 5) {
+
+				selectSQL = "select * from product where pprice between 20000 and 30000";
+			}
+			if (sort == 6) {
+				selectSQL = "select * from product where pprice between 30000 and 50000";
+			}
+			try {
+				pstmt = conn.prepareStatement(selectSQL);
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+
+					ProductBean productBean = new ProductBean();
+					productBean.setpId(rs.getInt(1));
+					productBean.setpName(rs.getString(2));
+					productBean.setpDetail(rs.getString(3));
+					productBean.setpPrice(rs.getString(4));
+					productBean.setpImageURL(rs.getString(5));
+					productBean.setpType(rs.getString(8));
+					phoneList.add(productBean);
+
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		return phoneList;
+
+	}
+
 }
