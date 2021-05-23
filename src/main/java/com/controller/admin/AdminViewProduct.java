@@ -1,4 +1,4 @@
-package com.controller.product;
+package com.controller.admin;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,24 +12,15 @@ import com.bean.product.ProductBean;
 import com.dao.product.ProductDao;
 
 /**
- * Servlet implementation class ViewProductController
+ * Servlet implementation class AdminViewProduct
  */
-public class ViewProductController extends HttpServlet {
+public class AdminViewProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		// String url = request.getRequestURL().toString();
-
-		/// url = url.substring(url.lastIndexOf("\\") + 1, url.length());
-
 		List<ProductBean> phoneList = null;
 		String flag = request.getParameter("flag");
 		System.out.println(flag);
@@ -37,12 +28,12 @@ public class ViewProductController extends HttpServlet {
 		if (flag != null) {
 
 			sort = Integer.parseInt(flag);
-			if (sort == 3 || sort == 4 || sort == 5 || sort == 6 || sort ==7) {
+			if (sort == 3 || sort == 4 || sort == 5 || sort == 6 || sort == 7) {
 
 				System.out.println("inside else if");
 				phoneList = new ProductDao().getAllPhones(sort);
 				request.setAttribute("phoneList", phoneList);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("/admin/viewProductAdmin.jsp").forward(request, response);
 
 			}
 
@@ -50,7 +41,7 @@ public class ViewProductController extends HttpServlet {
 
 			phoneList = new ProductDao().getAllPhones();
 			request.setAttribute("phoneList", phoneList);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("admin/viewProductAdmin.jsp").forward(request, response);
 		}
 
 	}

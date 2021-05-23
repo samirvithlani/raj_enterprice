@@ -88,7 +88,7 @@
 				}
 				} else {
 
-				response.sendRedirect("ViewProductController");
+				response.sendRedirect("ViewProduct_shopController");
 				}
 				%>
 

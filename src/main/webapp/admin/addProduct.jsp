@@ -1,4 +1,7 @@
 <%@page import="com.bean.admin.AdminBean"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.bean.product.ProductBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -36,7 +39,7 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
 				href="AdminLogoutController">LOGOUT</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="../ViewProductController">VIEW PRODUCTS</a>
+				<a href="../AdminViewProduct">VIEW PRODUCTS</a>
 			</span>
 		</div>
 	</nav>
@@ -86,5 +89,9 @@
 	}
 	%>
 	}
+
+
+
+
 </body>
 </html>

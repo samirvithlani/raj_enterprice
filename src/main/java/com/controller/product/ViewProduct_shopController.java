@@ -12,24 +12,22 @@ import com.bean.product.ProductBean;
 import com.dao.product.ProductDao;
 
 /**
- * Servlet implementation class ViewProductController
+ * Servlet implementation class ViewProduct_shopController
  */
-public class ViewProductController extends HttpServlet {
+public class ViewProduct_shopController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+   
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		// String url = request.getRequestURL().toString();
-
-		/// url = url.substring(url.lastIndexOf("\\") + 1, url.length());
-
 		List<ProductBean> phoneList = null;
 		String flag = request.getParameter("flag");
 		System.out.println(flag);
@@ -42,25 +40,26 @@ public class ViewProductController extends HttpServlet {
 				System.out.println("inside else if");
 				phoneList = new ProductDao().getAllPhones(sort);
 				request.setAttribute("phoneList", phoneList);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("shop.jsp").forward(request, response);
 
 			}
 
 		} else {
 
+			System.out.println("else.....");
 			phoneList = new ProductDao().getAllPhones();
 			request.setAttribute("phoneList", phoneList);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("shop.jsp").forward(request, response);
 		}
 
 	}
 
+	
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

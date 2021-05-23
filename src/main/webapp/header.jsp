@@ -49,13 +49,12 @@
 				<div class="col-md-8">
 					<div class="user-menu">
 						<ul>
-							<li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-							<li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-							<li><a href="cart.html"><i class="fa fa-user"></i> My
-									Cart</a></li>
-							<li><a href="checkout.html"><i class="fa fa-user"></i>
-									Checkout</a></li>
-							<li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+							<li><a href="#"><i class="fa fa-user"></i></a></li>
+							<li><a href="#"><i class="fa fa-heart"></i> </a></li>
+							<li><a href="cart.html"><i class="fa fa-user"></i></a></li>
+							<li><a href="./admin/addProduct.jsp"><i class="fa fa-user"></i>
+									ADD</a></li>
+							<li><a href="./admin/adminLogin.jsp"><i class="fa fa-user"></i> Login</a></li>
 						</ul>
 					</div>
 				</div>

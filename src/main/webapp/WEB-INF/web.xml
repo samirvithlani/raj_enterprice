@@ -40,6 +40,24 @@
   	<description></description>
   	<servlet-class>com.controller.admin.AdminLoginController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ViewProduct_shopController</servlet-name>
+  	<display-name>ViewProduct_shopController</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.product.ViewProduct_shopController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminViewProduct</servlet-name>
+  	<display-name>AdminViewProduct</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.admin.AdminViewProduct</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteProductControllerAdmin</servlet-name>
+  	<display-name>DeleteProductControllerAdmin</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.admin.DeleteProductControllerAdmin</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AddProductController</servlet-name>
   	<url-pattern>/AddProductController</url-pattern>
@@ -63,5 +81,17 @@
   <servlet-mapping>
   	<servlet-name>AdminLoginController</servlet-name>
   	<url-pattern>/AdminLoginController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewProduct_shopController</servlet-name>
+  	<url-pattern>/ViewProduct_shopController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminViewProduct</servlet-name>
+  	<url-pattern>/AdminViewProduct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteProductControllerAdmin</servlet-name>
+  	<url-pattern>/DeleteProductControllerAdmin</url-pattern>
   </servlet-mapping>
 </web-app>

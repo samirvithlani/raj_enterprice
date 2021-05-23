@@ -144,8 +144,11 @@
 							class="fa fa-link"></i> OLD PHONES</a>&nbsp;&nbsp; &nbsp;&nbsp; <a
 							href="ViewProductController?flag=2" class="view-details-link"><i
 							class="fa fa-link"></i> NEW PHONES</a>
+
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="ViewProductController?flag=3" class="view-details-link"><i
+						<a href="ViewProductController?flag=7" class="view-details-link"><i
+							class="fa fa-link"></i>500-3000</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
+							href="ViewProductController?flag=3" class="view-details-link"><i
 							class="fa fa-link"></i> 5,000-10,000</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
 							href="ViewProductController?flag=4" class="view-details-link"><i
 							class="fa fa-link"></i> 10,000-20,000</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
